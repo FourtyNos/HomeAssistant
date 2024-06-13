@@ -59,4 +59,3 @@ action:
           - condition: state
             entity_id: !input schalter1
             state: "off"
-      mode: restart
