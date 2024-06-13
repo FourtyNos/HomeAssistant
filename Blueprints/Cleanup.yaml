@@ -33,7 +33,7 @@ action:
   - repeat:
       sequence:
         - service: tts.cloud_say
-          metadata: 
+          metadata: {}
           data:
             cache: true
             entity_id: !input target_media
