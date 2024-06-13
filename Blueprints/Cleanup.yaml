@@ -4,14 +4,14 @@ blueprint:
   domain: automation
   source_url: 
   input:
-    use_switch:
-    name: Eingabe helfer typ boolean
-    description: Der eingabe Switch der die automation Triggert und am laufen hält.
-    selector:
-      entity:
-        filter:
-          - domain: binary_sensor
-          - device_class: input_boolean
+    schalter1:
+      name: input boolean
+      description: Der eingabe Switch der die automation Triggert und am laufen hält.
+      selector:
+        entity:
+          filter:
+            - domain: binary_sensor
+            - device_class: input_boolean
   
     target_media:
       name: media
@@ -24,7 +24,7 @@ blueprint:
 
   trigger:
     - platform: state
-      entity_id: !input use_switch
+      entity_id: !input schalter1
       from: "off"
       to: "on"
   condition: []
@@ -58,6 +58,6 @@ blueprint:
               milliseconds: 0
         until:
             - condition: state
-              entity_id: !input use_switch
+              entity_id: !input schalter1
               state: "off"
         mode: restart
