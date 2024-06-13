@@ -14,10 +14,9 @@ blueprint:
             - device_class: input_boolean
   
     target_media:
-      name: "media"
+      name: "Wiedergabegerät"
       description: Das Gerät welches die wiedergabe machen soll
       selector:
-        target:
           entity:
             filter:
             - domain: media_player
