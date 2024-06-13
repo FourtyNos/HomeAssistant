@@ -5,12 +5,12 @@ blueprint:
   source_url: https://github.com/FourtyNos/HomeAssistant/blob/main/Blueprints/Cleanup.yaml
   input:
     schalter1:
-      name: "input boolean"
-      description: Der eingabe Switch der die automation Triggert und am laufen hält.
+      name: "Schalter"
+      description: Der eingabe Switch der die automation Triggert und am laufen hält. (ein "Helfer" z.B.")
       selector:
         entity:
           filter:
-            - domain: binary_sensor
+            - domain: input_boolean
             - device_class: input_boolean
   
     target_media:
