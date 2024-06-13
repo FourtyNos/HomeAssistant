@@ -38,7 +38,7 @@ action:
           metadata: {}
           data:
             cache: true
-            entity_id: target_media
+            entity_id: !input target_media
             message: |
               {{ [ 
                'Ihr Sollt das Zimmer aufräumen!!',
