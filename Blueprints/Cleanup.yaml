@@ -1,6 +1,6 @@
 blueprint:
   name: Cleanup
-  description: "Erinnert die Kinder daran aufzuräumen."
+  description: "Konstate Nachricht zur erinnerung der Kinder daran aufzuräumen."
   domain: automation
   source_url: https://github.com/FourtyNos/HomeAssistant/blob/main/Blueprints/Cleanup.yaml
   input:
