@@ -27,9 +27,7 @@ trigger:
     from: "off"
     to: "on"
 
-
 condition: []
-
 
 action:
   - repeat:
