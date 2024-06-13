@@ -49,7 +49,7 @@ action:
                   'bleibt endlich im Zimmer',
                   'bleibt in Zimmer und räumt auf',
                   'Räumt jetzt weiter auf',
-                  'Zoe, Hailey - aufräumen los!'
+                  'Kinder - aufräumen los!'
                   ] | random }}
         - delay:
             hours: 0
