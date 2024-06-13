@@ -30,32 +30,26 @@ trigger:
 action:
   - repeat:
       sequence:
-        - parallel:
-            - service: tts.cloud_say
-              metadata: {}
-              data:
-                cache: true
-                entity_id: !input target_media
-                message: |
-                  {{ [  
-                  'Ihr Sollt das Zimmer aufräumen!!',
-                  'Aufräumen, los!', 
-                  'macht Endlich, los!',
-                  'was sollt ihr tun? aufräumen!',
-                  'macht es endlich los!',
-                  'Räumt auf!',
-                  'hört auf zu spielen',
-                  'bleibt endlich im Zimmer',
-                  'bleibt in Zimmer und räumt auf',
-                  'Räumt jetzt weiter auf',
-                  'Kinder - aufräumen los!'
-                  ] | random }}
-        - delay:
-            hours: 0
-            minutes: 0
-            seconds: 3
-            milliseconds: 0
+        - service: tts.cloud_say
+          metadata: {}
+          data:
+            cache: false
+            entity_id: !input target_media
+            message: |
+              {{ [ 
+               'Ihr Sollt das Zimmer aufräumen!!',
+               'Aufräumen, los!', 
+               'macht Endlich, los!',
+               'was sollt ihr tun? aufräumen!',
+               'macht es endlich los!',
+               'Räumt auf!',
+               'hört auf zu spielen',
+               'bleibt endlich im Zimmer',
+               'bleibt in Zimmer und räumt auf',
+               'Räumt jetzt weiter auf',
+               'Kinder - aufräumen los!'
+                ] | random }}
       until:
-          - condition: state
-            entity_id: !input schalter1
-            state: "off"
+        - condition: state
+          entity_id: !input schalter1
+          state: "off"
