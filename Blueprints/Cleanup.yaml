@@ -1,0 +1,63 @@
+blueprint:
+  name: Cleanup
+  description: "erinnert die Kinder daran aufzuräumen."
+  domain: automation
+  source_url: 
+  input:
+    use_switch:
+    name: Eingabe helfer typ boolean
+    description: Der eingabe Switch der die automation Triggert und am laufen hält.
+    selector:
+      entity:
+        filter:
+          - domain: binary_sensor
+          - device_class: input_boolean
+  
+    target_media:
+      name: media
+      description: Das Gerät welches die wiedergabe machen soll
+      selector:
+        target:
+          entity:
+            - domain: media
+
+
+  trigger:
+    - platform: state
+      entity_id: !input use_switch
+      from: "off"
+      to: "on"
+  condition: []
+  action:
+    - repeat:
+        sequence:
+          - parallel:
+              - service: tts.cloud_say
+                metadata: {}
+                data:
+                  cache: true
+                  entity_id: !target_media
+                  message: |
+                    {{ [  
+                    'Ihr Sollt das Zimmer aufräumen!!',
+                    'Aufräumen, los!', 
+                    'macht Endlich, los!',
+                    'was sollt ihr tun? aufräumen!',
+                    'macht es endlich los!',
+                    'Räumt auf!',
+                    'hört auf zu spielen',
+                    'bleibt endlich im Zimmer',
+                    'bleibt in Zimmer und räumt auf',
+                    'Räumt jetzt weiter auf',
+                    'Zoe, Hailey - aufräumen los!'
+                    ] | random }}
+          - delay:
+              hours: 0
+              minutes: 0
+              seconds: 3
+              milliseconds: 0
+        until:
+            - condition: state
+              entity_id: !input use_switch
+              state: "off"
+        mode: restart
