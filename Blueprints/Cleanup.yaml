@@ -6,7 +6,7 @@ blueprint:
   input:
     schalter1:
       name: "Schalter"
-      description: Der eingabe Switch der die automation Triggert und am laufen hält. (ein "Helfer" z.B.")
+      description: Der eingabe Switch der die automation Triggert und am laufen hält. (ein "Helfer")
       selector:
         entity:
           filter:
@@ -19,7 +19,7 @@ blueprint:
       selector:
         target:
           entity:
-            - domain: media
+            - domain: media_player
 
 
 trigger:
