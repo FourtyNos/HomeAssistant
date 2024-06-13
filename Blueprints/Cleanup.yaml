@@ -22,13 +22,13 @@ blueprint:
             - domain: media_player
 
 trigger:
-  platform: state
-  entity_id: !input schalter1
-  from: "off"
-  to: "on"
+  - platform: state
+    entity_id: !input schalter1
+    from: "off"
+    to: "on"
 
 
-condition: 
+condition: []
 
 
 action:
