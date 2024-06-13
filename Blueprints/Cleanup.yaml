@@ -33,9 +33,9 @@ action:
   - repeat:
       sequence:
         - service: tts.cloud_say
-          metadata: {}
+          metadata: 
           data:
-            cache: false
+            cache: true
             entity_id: !input target_media
             message: |
               {{ [ 
