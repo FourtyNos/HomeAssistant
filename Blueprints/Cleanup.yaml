@@ -27,7 +27,9 @@ trigger:
   from: "off"
   to: "on"
 
+
 condition: 
+
 
 action:
   - repeat:
@@ -36,7 +38,7 @@ action:
           metadata: {}
           data:
             cache: true
-            entity_id: !input target_media
+            entity_id: target_media
             message: |
               {{ [ 
                'Ihr Sollt das Zimmer aufräumen!!',
@@ -51,6 +53,11 @@ action:
                'Räumt jetzt weiter auf',
                'Kinder - aufräumen los!'
                 ] | random }}
+        - delay:
+            hours: 0
+            minutes: 0
+            seconds: 3
+            milliseconds: 0
       until:
         - condition: state
           entity_id: !input schalter1
